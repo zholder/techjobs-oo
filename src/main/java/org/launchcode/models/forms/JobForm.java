@@ -21,12 +21,21 @@ public class JobForm {
 
     @NotNull
     private int employerId;
-
     /*
         TODO #3 - Included other fields needed to create a job,
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
+
+    @NotNull
+    private int locationId;
+
+    @NotNull
+    private int coreCompetencyId;
+
+    @NotNull
+    private int positionTypeId;
+
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
@@ -64,6 +73,30 @@ public class JobForm {
         this.employerId = employerId;
     }
 
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCoreCompetencyId() {
+        return coreCompetencyId;
+    }
+
+    public void setCoreCompetencyId(int coreCompetencyId) {
+        this.coreCompetencyId = coreCompetencyId;
+    }
+
+    public int getPositionTypeId() {
+        return positionTypeId;
+    }
+
+    public void setPositionTypeId(int positionTypeId) {
+        this.positionTypeId = positionTypeId;
+    }
+
     public ArrayList<Employer> getEmployers() {
         return employers;
     }
@@ -95,4 +128,33 @@ public class JobForm {
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
     }
+
+    public Employer getEmployer(int employerId){
+        for (Employer matchingEmployer: employers){
+            if (matchingEmployer.getId() == employerId)
+                return matchingEmployer;
+        } return null;
+    }
+
+    public Location getLocation(int locationId){
+        for (Location location: locations){
+            if (location.getId() == locationId)
+                return location;
+        } return null;
+    }
+
+    public CoreCompetency getCoreCompetency(int coreCompetencyId){
+        for (CoreCompetency coreCompetency: coreCompetencies){
+            if (coreCompetency.getId() == coreCompetencyId)
+                return coreCompetency;
+        } return null;
+    }
+
+    public PositionType getPositionType (int positionTypeId){
+        for (PositionType positionType: positionTypes){
+            if (positionType.getId() == positionTypeId)
+                return positionType;
+        } return null;
+    }
+
 }
